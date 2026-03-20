@@ -51,29 +51,29 @@ export default function DashboardPage() {
     };
 
     return (
-      <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
-        <Card hover>
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">{label}</p>
-            <div className={statusColors[status]}>
-              <Icon size={24} />
+      <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }} className="h-full">
+        <Card hover className="h-full p-6 flex flex-col items-center justify-center text-center">
+          <div className="flex items-center justify-center mb-4">
+            <div className={`p-4 rounded-xl bg-slate-100 dark:bg-slate-800/50 ${statusColors[status]}`}>
+              <Icon size={32} />
             </div>
           </div>
-          <p className="text-3xl font-bold dark:text-white">
+          <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wider">{label}</p>
+          <h3 className="text-3xl font-extrabold dark:text-white mb-4">
             {value}
             <span className="text-lg text-slate-500 dark:text-slate-400 ml-1">{unit}</span>
-          </p>
-          <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700">
+          </h3>
+          <div className="mt-auto">
             <span
-              className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+              className={`inline-block px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider ${
                 status === 'good'
-                  ? 'bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-100'
+                  ? 'bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800'
                   : status === 'warning'
-                    ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-100'
-                    : 'bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-100'
+                    ? 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800'
+                    : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 border border-red-200 dark:border-red-800'
               }`}
             >
-              {status.charAt(0).toUpperCase() + status.slice(1)}
+              {status}
             </span>
           </div>
         </Card>
@@ -83,7 +83,7 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen py-20 bg-slate-50 dark:bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -121,7 +121,7 @@ export default function DashboardPage() {
         {activeTab === 'overview' && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
             {/* Current Readings */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12 items-stretch">
               <SensorCard
                 icon={Droplets}
                 label="Soil Moisture"

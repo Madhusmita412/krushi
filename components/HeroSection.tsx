@@ -58,25 +58,48 @@ export default function HeroSection() {
 
         {/* Right Visual */}
         <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 100,
+            damping: 20,
+            delay: 0.2
+          }}
           className="relative"
         >
-          <div className="relative w-full h-96 bg-gradient-to-br from-green-400 to-green-600 rounded-3xl soft-shadow overflow-hidden">
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-0 opacity-20"
+          {/* Playful Floating Elements Background */}
+          <div className="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+          <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse delay-75"></div>
+          
+          <div className="relative w-full h-[32rem] rounded-[2.5rem] border-4 border-white/50 soft-shadow overflow-hidden group">
+            {/* The Image */}
+            <img 
+              src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=2070&auto=format&fit=crop" 
+              alt="Lush green agriculture field with farmer hands" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-green-900/80 via-green-900/20 to-transparent"></div>
+            
+            {/* Badge overlay on top of image */}
+            <motion.div 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="absolute bottom-6 left-6 right-6"
             >
-              <div className="w-full h-full bg-[url('data:image/svg+xml,...')]"></div>
-            </motion.div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-white text-center">
-                <Sprout size={80} className="mx-auto mb-4" />
-                <p className="text-2xl font-bold">Crop Health Monitored</p>
+              <div className="glassmorphism p-6 flex items-center gap-4 text-slate-800 dark:text-white">
+                <div className="w-14 h-14 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg text-green-900">
+                  <Sprout size={32} />
+                </div>
+                <div>
+                  <p className="text-xl font-bold">Crop Health Monitored</p>
+                  <p className="text-sm opacity-80 font-medium">Real-time stats updating...</p>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

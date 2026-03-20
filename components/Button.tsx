@@ -23,12 +23,12 @@ export default function Button({
   type = 'button',
 }: ButtonProps) {
   const baseStyles =
-    'font-semibold rounded-lg transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap';
+    'font-bold rounded-full transition-all duration-300 inline-flex items-center justify-center gap-2 whitespace-nowrap active:scale-95';
 
   const variants = {
-    primary: 'bg-green-600 hover:bg-green-700 text-white shadow-lg hover:shadow-xl hover:scale-105',
-    secondary: 'bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-900 dark:text-slate-100',
-    outline: 'border-2 border-green-600 text-green-600 hover:bg-green-50 dark:hover:bg-slate-900',
+    primary: 'bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white shadow-[0_8px_20px_rgba(34,197,94,0.3)] hover:shadow-green-500/40 hover:-translate-y-1',
+    secondary: 'bg-yellow-400 hover:bg-yellow-300 text-yellow-950 shadow-[0_8px_20px_rgba(250,204,21,0.3)] hover:shadow-yellow-400/40 hover:-translate-y-1',
+    outline: 'border-2 border-green-500 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 hover:-translate-y-1',
   };
 
   const sizes = {

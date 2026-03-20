@@ -21,7 +21,7 @@ export default function RootLayout({
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="bg-[radial-gradient(ellipse_at_top,_var(--color-green-50),_var(--color-slate-50))] dark:bg-[radial-gradient(ellipse_at_top,_#3a2e25,_var(--color-slate-950))] text-slate-900 dark:text-slate-100 min-h-screen">
+      <body className="bg-[radial-gradient(circle_at_top_right,_var(--color-yellow-100),_var(--color-green-50),_var(--color-slate-50))] dark:bg-[radial-gradient(circle_at_top_right,_var(--color-green-900),_var(--color-slate-900),_var(--color-slate-950))] text-slate-900 dark:text-slate-100 min-h-screen">
         <Navbar />
         {children}
         <Footer />
