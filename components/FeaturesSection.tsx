@@ -48,7 +48,7 @@ export default function FeaturesSection() {
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -58,16 +58,16 @@ export default function FeaturesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="h-full"
+                className="h-full flex"
               >
-                <Card hover className="h-full p-6 flex flex-col items-center justify-center text-center">
-                  <div className="flex items-center justify-center mb-5">
-                    <div className="p-4 bg-green-100 dark:bg-green-900/50 rounded-xl">
-                      <IconComponent size={32} className="text-green-600 dark:text-green-400" />
-                    </div>
+                <Card hover className="w-full h-full p-8 flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-2xl bg-green-100 dark:bg-green-900/50 flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
+                    <IconComponent size={32} />
                   </div>
                   <h3 className="text-xl font-bold mb-3 dark:text-white">{feature.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{feature.description}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm lg:text-base">
+                    {feature.description}
+                  </p>
                 </Card>
               </motion.div>
             );

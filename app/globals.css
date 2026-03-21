@@ -1,33 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Vibrant Lush Green */
-  --color-green-50: #f0fdf4;
-  --color-green-100: #dcfce7;
-  --color-green-200: #bbf7d0;
-  --color-green-300: #86efac;
-  --color-green-400: #4ade80;
-  --color-green-500: #22c55e;
-  --color-green-600: #16a34a;
-  --color-green-700: #15803d;
-  --color-green-800: #166534;
-  --color-green-900: #14532d;
-  --color-green-950: #052e16;
+  /* Professional Forest/Leaf Green (Nature Theme) */
+  --color-green-50: #f2fbf5;
+  --color-green-100: #e1f6e8;
+  --color-green-200: #c4ebd4;
+  --color-green-300: #98daba;
+  --color-green-400: #64c19a;
+  --color-green-500: #3ba37b;
+  --color-green-600: #298260;
+  --color-green-700: #24684e;
+  --color-green-800: #205340;
+  --color-green-900: #1b4435;
+  --color-green-950: #0f271f;
 
-  /* Bright Sunny Yellow for vibrant accents */
-  --color-yellow-50: #fefce8;
-  --color-yellow-100: #fef9c3;
-  --color-yellow-200: #fef08a;
-  --color-yellow-300: #fde047;
-  --color-yellow-400: #facc15;
-  --color-yellow-500: #eab308;
-  --color-yellow-600: #ca8a04;
-  --color-yellow-700: #a16207;
-  --color-yellow-800: #854d0e;
-  --color-yellow-900: #713f12;
-  --color-yellow-950: #422006;
+  /* Earthy Amber/Harvest Gold (Subtle, warm accents) */
+  --color-yellow-50: #fffbeb;
+  --color-yellow-100: #fef3c7;
+  --color-yellow-200: #fde68a;
+  --color-yellow-300: #fcd34d;
+  --color-yellow-400: #fbbf24;
+  --color-yellow-500: #f59e0b;
+  --color-yellow-600: #d97706;
+  --color-yellow-700: #b45309;
+  --color-yellow-800: #92400e;
+  --color-yellow-900: #78350f;
+  --color-yellow-950: #451a03;
 
-  /* Slate / Backgrounds */
+  /* Natural Stone/Grey for organic backgrounds */
   --color-slate-50: #fafaf9;
   --color-slate-100: #f5f5f4;
   --color-slate-200: #e7e5e4;
@@ -59,34 +59,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Glassmorphism Effect - Playful & Vibrant */
+/* Glassmorphism Effect - Professional & Elegant */
 .glassmorphism {
-  background: rgba(255, 255, 255, 0.85);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  border: 2px solid rgba(250, 204, 21, 0.4); /* Bright yellow hint */
-  box-shadow: 0 8px 32px 0 rgba(74, 222, 128, 0.15); /* Green shadow */
-  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(228, 236, 231, 0.8); /* Refined, subtle natural border */
+  box-shadow: 0 10px 40px -10px rgba(36, 104, 78, 0.08); /* Elegant deep green vapor shadow */
+  border-radius: 1.25rem; /* Slightly less rounded for a mature look */
 }
 
 .dark .glassmorphism {
-  background: rgba(28, 25, 23, 0.8);
-  border: 2px solid rgba(34, 197, 94, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  background: rgba(28, 25, 23, 0.85); /* Deep earthy background */
+  border: 1px solid rgba(41, 130, 96, 0.2);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
 }
 
 /* Smooth Shadows */
 .soft-shadow {
-  box-shadow: 0 10px 40px rgba(74, 222, 128, 0.2);
+  box-shadow: 0 8px 30px rgba(36, 104, 78, 0.06);
 }
 
 .dark .soft-shadow {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Gradient Text - High Contrast Playful */
+/* Gradient Text - Natural & Sophisticated */
 .gradient-text {
-  background: linear-gradient(135deg, #16a34a 0%, #eab308 100%);
+  background: linear-gradient(135deg, #298260 0%, #d97706 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -117,10 +117,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(84, 128, 48, 0.7);
+    box-shadow: 0 0 0 0 rgba(41, 130, 96, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(84, 128, 48, 0);
+    box-shadow: 0 0 0 10px rgba(41, 130, 96, 0);
   }
 }
 
@@ -142,18 +142,18 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #faf9f6;
+  background: #f2fbf5;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #291e17;
+  background: #1c1917;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #548030;
+  background: #64c19a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #426428;
+  background: #298260;
 }

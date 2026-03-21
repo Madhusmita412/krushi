@@ -1,10 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Sprout } from 'lucide-react';
+import { Sprout, Calculator } from 'lucide-react';
 import Button from './Button';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onOpenROI?: () => void;
+}
+
+export default function HeroSection({ onOpenROI }: HeroSectionProps) {
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -37,6 +41,15 @@ export default function HeroSection() {
             <Button href="/dashboard" size="lg" variant="outline">
               View Dashboard
             </Button>
+            {onOpenROI && (
+              <button
+                onClick={onOpenROI}
+                className="flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl sm:whitespace-nowrap"
+              >
+                <Calculator size={20} />
+                Calculate ROI
+              </button>
+            )}
           </div>
 
           {/* Stats */}

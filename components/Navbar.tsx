@@ -2,11 +2,14 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X, Leaf, Globe } from 'lucide-react';
 import DarkModeToggle from './DarkModeToggle';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Navbar() {
+  const { language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -40,12 +43,67 @@ export default function Navbar() {
         </div>
 
         {/* Right side icons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-6">
+          {/* Language Selector */}
+          <div className="relative group">
+            <button className="flex items-center gap-2 px-3 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+              <Globe size={20} />
+              <span className="text-sm font-medium uppercase">{language}</span>
+            </button>
+            <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto z-40">
+              {['EN', 'HI', 'KN', 'MR'].map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => {
+                    setLanguage(lang.toLowerCase());
+                    setIsLanguageOpen(false);
+                  }}
+                  className={`block w-full text-left px-4 py-2 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors ${
+                    language === lang.toLowerCase() ? 'bg-green-50 dark:bg-green-900/50 text-green-600 dark:text-green-400 font-semibold' : 'text-slate-700 dark:text-slate-300'
+                  }`}
+                >
+                  {lang === 'EN' && 'English'}
+                  {lang === 'HI' && 'हिंदी'}
+                  {lang === 'KN' && 'ಕನ್ನಡ'}
+                  {lang === 'MR' && 'मराठी'}
+                </button>
+              ))}
+            </div>
+          </div>
           <DarkModeToggle />
         </div>
 
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center gap-4">
+          <div className="relative">
+            <button
+              onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+              className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700"
+            >
+              <Globe size={20} />
+            </button>
+            {isLanguageOpen && (
+              <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 z-40">
+                {['EN', 'HI', 'KN', 'MR'].map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => {
+                      setLanguage(lang.toLowerCase());
+                      setIsLanguageOpen(false);
+                    }}
+                    className={`block w-full text-left px-4 py-2 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors text-sm ${
+                      language === lang.toLowerCase() ? 'bg-green-50 dark:bg-green-900/50 text-green-600 dark:text-green-400 font-semibold' : 'text-slate-700 dark:text-slate-300'
+                    }`}
+                  >
+                    {lang === 'EN' && 'English'}
+                    {lang === 'HI' && 'हिंदी'}
+                    {lang === 'KN' && 'ಕನ್ನಡ'}
+                    {lang === 'MR' && 'मराठी'}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <DarkModeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}

@@ -52,7 +52,7 @@ export default function HowItWorksSection() {
         </motion.div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 relative">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
             return (
@@ -62,43 +62,45 @@ export default function HowItWorksSection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative h-full"
+                className="h-full flex relative group"
               >
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-[25%] -right-4 w-8 h-1 bg-gradient-to-r from-green-600 to-transparent z-0"></div>
+                  <div className="hidden lg:block absolute top-[60px] -right-4 w-8 h-1 bg-gradient-to-r from-green-500 to-transparent opacity-50 z-0"></div>
                 )}
 
-                <Card className="h-full p-6 flex flex-col items-center justify-center text-center relative z-10 hover:shadow-lg transition-shadow">
-                  <div className="inline-block relative mb-5">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                <Card hover className="w-full h-full flex flex-col items-center pt-8 pb-10 px-6 text-center relative z-10 transition-transform duration-300">
+                  <div className="inline-block relative mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg border-4 border-slate-50 dark:border-slate-800">
                       {step.number}
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-center mb-5">
-                    <IconComponent size={36} className="text-green-600 dark:text-green-400" />
+                  <div className="w-14 h-14 bg-green-100 dark:bg-green-900/50 rounded-2xl flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
+                    <IconComponent size={28} />
                   </div>
 
                   <h3 className="text-xl font-bold mb-3 dark:text-white">{step.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm lg:text-base">
+                    {step.description}
+                  </p>
                 </Card>
               </motion.div>
             );
           })}
         </div>
 
-        {/* Additional Info */}
+        {/* Additional Info Box */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="w-full max-w-3xl mx-auto mt-12 md:mt-20"
         >
-          <Card className="max-w-2xl mx-auto p-8">
-            <h3 className="text-2xl font-bold mb-4 dark:text-white">Works Offline Too!</h3>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+          <Card className="text-center p-10">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 dark:text-white">Works Offline Too!</h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
               Our mobile-first design works even in areas with low or no internet connectivity. Sync your data
               when you're back online.
             </p>
