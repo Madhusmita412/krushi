@@ -213,7 +213,7 @@ export default function AboutPage() {
                 style={{ 
                   backgroundImage: "url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')" 
                 }}
-              />
+              >
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-500" />
               
