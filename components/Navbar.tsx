@@ -78,6 +78,7 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+              aria-label="Toggle language menu"
               className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700"
             >
               <Globe size={20} />

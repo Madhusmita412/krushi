@@ -108,6 +108,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
           <h2 className="text-2xl font-bold dark:text-white">{t.title}</h2>
           <button
             onClick={onClose}
+            aria-label="Close modal"
             className="p-2 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors"
           >
             <X size={24} />
@@ -124,6 +125,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
                 {t.cultivationLabel}
               </label>
               <select
+                id="cultivationMethod"
                 value={cultivationMethod}
                 onChange={(e) => setCultivationMethod(e.target.value)}
                 className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 dark:text-white focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
@@ -140,6 +142,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
                 {t.cropLabel}
               </label>
               <select
+                id="cropType"
                 value={cropType}
                 onChange={(e) => setCropType(e.target.value)}
                 className="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 dark:text-white focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900"
@@ -157,6 +160,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
                 {t.landLabel}
               </label>
               <input
+                id="landSize"
                 type="number"
                 value={landSize}
                 onChange={(e) => setLandSize(e.target.value)}
