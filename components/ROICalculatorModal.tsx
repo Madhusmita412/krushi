@@ -121,7 +121,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
           <div className="space-y-6 mb-8">
             {/* Cultivation Method */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
+              <label htmlFor="cultivationMethod" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
                 {t.cultivationLabel}
               </label>
               <select
@@ -138,7 +138,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
 
             {/* Crop Type */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
+              <label htmlFor="cropType" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
                 {t.cropLabel}
               </label>
               <select
@@ -156,7 +156,7 @@ export default function ROICalculatorModal({ isOpen, onClose, language }: ROICal
 
             {/* Land Size */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
+              <label htmlFor="landSize" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">
                 {t.landLabel}
               </label>
               <input

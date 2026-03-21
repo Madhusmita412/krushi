@@ -108,6 +108,7 @@ export default function Navbar() {
           <DarkModeToggle />
           <button
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle navigation menu"
             className="p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
